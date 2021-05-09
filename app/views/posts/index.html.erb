@@ -1,0 +1,33 @@
+<div class="main_schedule">
+ <h3>スケジュール一覧</h3>
+ <table>
+  <thead>
+	<tr>
+	  <th>ID</th>
+	  <th>タイトル</th>
+	  <th>開始日</th>
+	  <th>終了日</th>
+	  <th>終日</th>
+	  <th>スケジュール更新日</th>
+	  <th>確認</th>
+	  <th>編集</th>
+	  <th>削除</th>
+	</tr>
+  </thead>
+
+  <tbody>
+   <% @schedules.each do |schedules| %>
+	<tr>
+     <td><%= schedules.id %></td>
+     <td><%= schedules.title %><</td>
+     <td><%= schedules.startdate %><</td>
+     <td><%= schedules.enddate %><</td>
+     <td><%= schedules.alldayflg %><</td>
+     <td><%= schedules.memo %><</td>
+	</tr>
+   <% end %>
+  </tbody>
+ </table>
+ <p><%= link_to "スケジュール新規登録", :new_post %></p>
+ <p><%= link_to "TOPへ", :root %></p>
+</div>	
