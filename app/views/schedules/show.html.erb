@@ -1,0 +1,42 @@
+<div class="main_schedule">
+<h3>スケジュール詳細</h3>
+	<table>
+	   <tr>
+		 <th>タイトル</th>
+		 <td><%= @schedule.title %></td>
+	   </tr>
+	   <tr>
+		 <th>開始日</th>
+		 <td><%= @schedule.startdate %></td>
+	   </tr>
+	   <tr>
+		 <th>終了日</th>
+		 <td><%= @schedule.enddate %></td>
+	   </tr>
+	   <tr>
+		 <th>終日</th>
+		 <td>
+		 <% if @schedule.alldayflg == true then %>
+		 ◯
+		 <% else %>
+	
+		 <% end %>
+		 </td>
+	   </tr>
+	   <tr>
+		 <th>スケジュールメモ</th>
+		 <td><%= @schedule.memo %></td>
+	   </tr>
+   </table>
+   
+   <div>
+	 <ul>
+	   <li><%= link_to "スケジュール一覧に戻る", :schedules %></li>
+	   <li><%= link_to "スケジュールを編集する", [:edit, @schedule] %></li>
+	   <li><%= link_to "スケジュールを削除", @schedule, method: :delete, data: { confirm: "本当に削除しますか？" } %></li>
+	 </ul>
+   </div>
+<div>
+
+<!-- フッター部分 -->
+<%= render "shared/footer_part"%>

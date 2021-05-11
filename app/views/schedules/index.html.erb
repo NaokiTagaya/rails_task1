@@ -1,0 +1,58 @@
+<div class="main_schedule">
+ <h3>スケジュール一覧</h3>
+
+ <!-- フラッシュメッセージ -->
+ <% if flash.notice %>
+ 	<p class="alert message-success"><%= flash.notice %></p>
+ <% end %>
+
+ <table>
+  <!-- 一覧ヘッダー部分 -->
+  <thead>
+	<tr>
+	  <th>ID</th>
+	  <th>タイトル</th>
+	  <th>開始日</th>
+	  <th>終了日</th>
+	  <th>終日</th>
+	  <th>スケジュール更新日時</th>
+	  <th>確認</th>
+	  <th>編集</th>
+	  <th>削除</th>
+	</tr>
+  </thead>
+
+  <!-- 一覧データ部分 -->
+  <tbody>
+   <% @schedules.each do |schedules| %>
+	<tr>
+     <td><%= schedules.id %></td>
+     <td><%= schedules.title %></td>
+     <td><%= schedules.startdate.to_s(:date_jp) %></td>
+     <td><%= schedules.enddate.to_s(:date_jp) %></td>
+	 <td>
+	 <% if schedules.alldayflg == true then %>
+	 ◯
+	 <% else %>
+
+	 <% end %>
+	 </td>
+     <td><%= schedules.updated_at.to_s(:datetime_jp) %></td>
+	 <td><%= link_to "確認", schedules %></td>
+	 <td><%= link_to "編集", [:edit, schedules] %></td>
+	 <td><%= link_to "削除", schedules, method: :delete, data: { confirm: "本当に削除しますか？" } %></td>
+	</tr>
+   <% end %>
+  </tbody>
+ </table>
+
+ <!-- リンク -->
+ <p><%= link_to "スケジュール新規登録", :new_schedule %></p>
+ <p><%= link_to "TOPへ", :root %></p>
+</div>
+
+<!-- スケジュール一覧画面用ヘッダー -->
+<footer>
+<% recordcount = @recordcount %>
+<h1>現在の日時 : <%= Date.current.strftime('%Y年 %m月 %d日') %>　スケジュール合計：<%= recordcount %></h1>
+</footer>
