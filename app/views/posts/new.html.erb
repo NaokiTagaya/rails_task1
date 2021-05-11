@@ -1,36 +1,36 @@
  <h3>スケジュール新規作成</h3>
 
- <%= form_for url: new_post(@schedule) do |s| %>
+ <%= form_for @post do |p| %>
 	<table>
 	   <tr>
-		 <th><%= s.label :title ,"タイトル" %></th>
-		 <td><%= s.text_field :title %></td>
+		 <th><%= p.label :title ,"タイトル" %></th>
+		 <td><%= p.text_field :title %></td>
 	   </tr>
 	   <tr>
-		 <th><%= s.label :startdate ,"開始日" %></th>
-		 <td><%= s.date_field :startdate %></td>
+		 <th><%= p.label :startdate ,"開始日" %></th>
+		 <td><%= p.date_field :startdate %></td>
 	   </tr>
 	   <tr>
-		 <th><%= s.label :enddate ,"終了日" %></th>
-		 <td><%= s.date_field :enddate %></td>
+		 <th><%= p.label :enddate ,"終了日" %></th>
+		 <td><%= p.date_field :enddate %></td>
 	   </tr>
 	   <tr>
-		 <th><%= s.label :alldayflg ,"終日" %></th>
+		 <th><%= p.label :alldayflg ,"終日" %></th>
 		 <td>
-		  <%= s.check_box :alldayflg %>
+		  <%= p.check_box :alldayflg %>
 		  <p>終日の場合はチェックを入れます</p>
 		 </td>
 	   </tr>
 	   <tr>
-		 <th><%= s.label :memo ,"スケジュールメモ" %></th>
-		 <td><%= s.text_area :memo %></td>
+		 <th><%= p.label :memo ,"スケジュールメモ" %></th>
+		 <td><%= p.text_area :memo %></td>
 	   </tr>
    </table>
    
    <div>
 	 <ul>
-	   <li><%= s.submit "スケジュールを新規登録する"%></li>
-	   <li><%= link_to "スケジュール一覧に戻る", :users %></li>
+	   <li><%= p.submit "スケジュールを新規登録する"%></li>
+	   <li><%= link_to "スケジュール一覧に戻る", :posts %></li>
 	 </ul>
    </div>
 <% end %>

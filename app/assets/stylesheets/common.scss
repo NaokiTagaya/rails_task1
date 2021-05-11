@@ -47,3 +47,39 @@ table td {
 	text-align: center;
 	padding: 20px 0px;
 }
+
+.schedule-input {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.schedule-input-memo {
+	width: 350px;
+    height: 200px;
+    font-size: 16px;
+}
+
+.alert {
+	padding: 15px;
+    width: 400px;
+    text-align: center;
+}
+
+.message-failed {
+	background-color: #ffb6c1;
+	color: 	#992544;
+    border: 2px solid #992544;
+}
+
+.message-success {
+	background-color: #87cefa;
+	color: 	#00008b;
+    border: 2px solid #00008b;
+}
+
+.message-delete {
+	background-color: #87cefa;
+	color: 	#00008b;
+    border: 2px solid #00008b;
+}

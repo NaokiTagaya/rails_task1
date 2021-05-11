@@ -1,0 +1,48 @@
+<div class="main_schedule">
+ <h3>スケジュール新規作成</h3>
+
+ <!-- フラッシュメッセージ表示 -->
+ <% if flash.notice %>
+ 	<p class="alert message-failed"><%= flash.notice %></p>
+ <% end %>
+ <!-- バリデーションエラー表示 -->
+ <%= render "shared/error", obj: @schedule %>
+
+ <%= form_for @schedule do |s| %>
+	<table>
+	   <tr>
+		 <th><%= s.label :title ,"タイトル" %></th>
+		 <td><%= s.text_field :title, :class => 'schedule-input' %></td>
+	   </tr>
+	   <tr>
+		 <th><%= s.label :startdate ,"開始日" %></th>
+		 <td><%= s.date_field :startdate, :class => 'schedule-input' %></td>
+	   </tr>
+	   <tr>
+		 <th><%= s.label :enddate ,"終了日" %></th>
+		 <td><%= s.date_field :enddate, :class => 'schedule-input' %></td>
+	   </tr>
+	   <tr>
+		 <th><%= s.label :alldayflg ,"終日" %></th>
+		 <td>
+		  <%= s.check_box :alldayflg, :class => 'schedule-input' %>
+		  <span>終日の場合はチェックを入れます</span>
+		 </td>
+	   </tr>
+	   <tr>
+		 <th><%= s.label :memo ,"スケジュールメモ" %></th>
+		 <td><%= s.text_area :memo, :class => 'schedule-input-memo' %></td>
+	   </tr>
+   </table>
+   
+   <div>
+	 <ul>
+	   <li><%= s.submit "スケジュールを新規登録する"%></li>
+	   <li><%= link_to "スケジュール一覧に戻る", :schedules %></li>
+	 </ul>
+   </div>
+<% end %>
+<div>
+
+<!-- フッター部分 -->
+<%= render "shared/footer_part"%>

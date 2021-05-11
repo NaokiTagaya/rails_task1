@@ -1,0 +1,7 @@
+<% if flash.success %>
+  <p class="alert message-success"><%= flash.success %></p>
+<% elsif flash.failure %>
+  <p class="alert message-failure"><%= flash.failure %></p>
+<% elsif flash.delete %>
+  <p class="alert message-delete"><%= flash.delete %></p>
+<% end %>
